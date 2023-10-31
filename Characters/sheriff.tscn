@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://b1hhy6xjpmsxx"]
+
+[ext_resource type="Script" path="res://Characters/npc.gd" id="1_3njl3"]
+[ext_resource type="Texture2D" uid="uid://cqme7ji5nwrdq" path="res://Art/Sheriff.png" id="2_x3dht"]
+[ext_resource type="PackedScene" uid="uid://cy4sbyn56gx6r" path="res://Interactables/npc_interact_area.tscn" id="3_031h7"]
+[ext_resource type="Resource" uid="uid://bweex3qw5prup" path="res://Dialogue/main.dialogue" id="4_vm26x"]
+
+[sub_resource type="Animation" id="Animation_jngjw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_jvm0v"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_glue8"]
+_data = {
+"RESET": SubResource("Animation_jngjw"),
+"idle": SubResource("Animation_jvm0v")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7l2b"]
+size = Vector2(21, 21)
+
+[node name="Sheriff" type="CharacterBody2D"]
+script = ExtResource("1_3njl3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_x3dht")
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_glue8")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 3.5)
+shape = SubResource("RectangleShape2D_q7l2b")
+
+[node name="Interact Area" parent="." instance=ExtResource("3_031h7")]
+dialogue_resource = ExtResource("4_vm26x")
+interact_type = "NPC"
