@@ -1,0 +1,21 @@
+~ NPC
+if NPC == 0:
+	Townsperson: Well, howdy there, stranger!
+	Townsperson: Haven't seen you around here before...
+	set NPC = 1
+	
+elif NPC == 1:
+	Townsperson: New to town?
+	Townsperson: Corbin's Saloon has the best drinks!
+	set NPC = 2
+
+elif NPC == 2:
+	Townsperson: Oh I wish there was some good hot sauce in this town....
+	set NPC = 0
+
+=> END
+
+~ sign
+This is a sign (You don't know how to read)
+
+=> END

@@ -1,0 +1,29 @@
+~ mother
+
+if mom == "":
+	Mom: Who are you?
+	MC: What do you mean? I'm literally your child. Why is my room empty?
+	Mom: What are you talking about?
+	Mom: I'm sorry, I've never met you before... This is just a guest room...
+	Mom: Can I help you with something ?
+	MC: This doesn't make any sense. I should try to figure out whats going on here.
+	set mom = "met"
+	- Interrogate her
+		Press E again to initiate interrogation
+		set changeLevel = "house"
+		=> END
+	- I need some time to think => END
+elif mom == "met":
+	Mom: Back again ? My memory has not changed. 
+	Mom: I suppose I'll listen to your side of this story again...
+	- Interrogate her
+		Press E again to initiate interrogation
+		set changeLevel = "house"
+		=> END
+	- I need some more time to think => END
+elif mom == "beat":
+	Mom: I still dont know who you are sweetheart, but maybe someone at the Saloon can help you!
+	=> END
+
+
+=> END

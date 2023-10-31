@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_10"
+type="Resource"
+uid="uid://ckngawcjcplyx"
+path="res://.godot/imported/mother.dialogue-64df30acdc69d60a13532e2ae44e82dd.tres"
+
+[deps]
+
+source_file="res://Dialogue/mother.dialogue"
+dest_files=["res://.godot/imported/mother.dialogue-64df30acdc69d60a13532e2ae44e82dd.tres"]
+
+[params]
+
+defaults=true

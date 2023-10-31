@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://30hnj1o6xvsa"]
+
+[ext_resource type="Texture2D" uid="uid://b56vb4co6pjnk" path="res://Art/Sign.png" id="1_d037l"]
+[ext_resource type="Resource" uid="uid://bweex3qw5prup" path="res://Dialogue/main.dialogue" id="3_423nq"]
+[ext_resource type="Script" path="res://Interactables/Interact Area.gd" id="3_b7a45"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hg3lv"]
+size = Vector2(28, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_plnrt"]
+radius = 20.025
+
+[node name="Sign" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_d037l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_hg3lv")
+
+[node name="Interact Area" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("3_b7a45")
+dialogue_resource = ExtResource("3_423nq")
+dialogue_start = "sign"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact Area"]
+shape = SubResource("CircleShape2D_plnrt")
